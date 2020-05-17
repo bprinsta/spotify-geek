@@ -14,10 +14,10 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="main.css" />
-    <link rel="stylesheet" type="text/css" href="track_basics.css" />
-    <link rel="stylesheet" type="text/css" href="audio_features.css" />
-    <link rel="stylesheet" type="text/css" href="audio_analysis.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/track_basics.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/audio_features.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/audio_analysis.css') }}" />
 
     <!-- Google Fonts -->
     <link
@@ -36,7 +36,7 @@
   <body>
     <div class="split left">
       <div class="logo-style">
-        <img class="logo" src="spotify_geek_logo.svg" alt="" />
+        <img class="logo" src="{{ url_for('static', filename='images/spotify_geek_logo.svg') }}" alt="" />
       </div>
       <div class="nav-links">
         <h4 class="nav-link">Home</h4>
@@ -47,7 +47,7 @@
     </div>
     <div class="split right">
       <div class="search-field">
-        <img class="small-logo" src="spotify_geek_logo.svg" alt="" />
+        <img class="small-logo" src="{{ url_for('static', filename='images/spotify_geek_logo.svg') }}" alt="" />
         <input
           type="search"
           class="search form-control"
@@ -58,7 +58,7 @@
       <div class="main-content">
         <div class="row">
           <div class="album-art-container">
-            <img class="album-art" src="album_art.png" alt="" />
+            <img class="album-art" src="{{ url_for('static', filename='images/album_art.png') }}" alt="" />
           </div>
           <div class="track-basic-info">
             <h1 class="track-title">All Eyes On Ye</h1>
