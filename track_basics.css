@@ -1,0 +1,44 @@
+.album-art {
+  height: 160px;
+}
+
+.track-artist {
+  color: #AAAAAA
+}
+
+.track-artist {
+  color: #AAAAAA
+}
+
+.track-album {
+  color: #AAAAAA
+}
+
+.track-basic-info {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+.album-art-container {
+  float: left;
+  width: 180;
+  padding: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .album-art {
+    height: 120px;
+  }
+
+  .track-title {
+  font-size: 30px;
+  }
+  
+  .album-art-container {
+    float: left;
+    width: 120;
+    margin-right: 10px;
+  }
+
+}

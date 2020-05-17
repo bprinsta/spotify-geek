@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="track_basics.css" />
+    <link rel="stylesheet" type="text/css" href="audio_features.css" />
+    <link rel="stylesheet" type="text/css" href="audio_analysis.css" />
+
+    <!-- Google Fonts -->
+    <link
+      href="http://fonts.googleapis.com/css?family=Corben:bold"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Nobile"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <title>Spotify Geek</title>
+  </head>
+  <body>
+    <div class="split left">
+      <div class="logo-style">
+        <img class="logo" src="spotify_geek_logo.svg" alt="" />
+      </div>
+      <div class="nav-links">
+        <h4 class="nav-link">Home</h4>
+        <h4 class="nav-link">About</h4>
+        <h4 class="nav-link">Challenge</h4>
+        <h4 class="nav-link">GitHub</h4>
+      </div>
+    </div>
+    <div class="split right">
+      <div class="search-field">
+        <img class="small-logo" src="spotify_geek_logo.svg" alt="" />
+        <input
+          type="search"
+          class="search form-control"
+          type="text"
+          placeholder="Search"
+        />
+      </div>
+      <div class="main-content">
+        <div class="row">
+          <div class="album-art-container">
+            <img class="album-art" src="album_art.png" alt="" />
+          </div>
+          <div class="track-basic-info">
+            <h1 class="track-title">All Eyes On Ye</h1>
+            <h2 class="track-artist">Kanye West</h2>
+            <h4 class="track-album">Turbo Grafx 16 · 2019</h4>
+          </div>
+        </div>
+
+        <div class="audio-info-container row-flex">
+          <div class="column audio-analysis">
+            <h2 style="margin-left: -10;">Audio Analysis</h2>
+            <div class="row row-flex">
+              <div class="column-flex">
+                <h1>A♯</h1>
+                <p style="color: #aaaaaa;">Key</p>
+
+                <h1>7/4</h1>
+                <p style="color: #aaaaaa;">Time Signature</p>
+
+                <h1>6:01</h1>
+                <p style="color: #aaaaaa;">Duration</p>
+              </div>
+              <div class="column-flex">
+                <h1>Minor</h1>
+                <p style="color: #aaaaaa;">Mode</p>
+
+                <h1>128</h1>
+                <p style="color: #aaaaaa;">Tempo (bpm)</p>
+
+                <h1>204</h1>
+                <p style="color: #aaaaaa;">Bars</p>
+              </div>
+            </div>
+          </div>
+          <div class="column audio-features">
+            <h2>Audio Features</h2>
+            <h6 class="dark-text">Acoustiness</h6>
+            <div class="bar red" style="width: 60%;"></div>
+            <h6 class="dark-text">Dancibility</h6>
+            <div class="bar purple" style="width: 80%;"></div>
+            <h6 class="dark-text">Energy</h6>
+            <div class="bar yellow" style="width: 40%;"></div>
+            <h6 class="dark-text">Instramentalness</h6>
+            <div class="bar blue" style="width: 95%;"></div>
+            <h6 class="dark-text">Liveness</h6>
+            <div class="bar green" style="width: 75%;"></div>
+            <h6 class="dark-text">Valence</h6>
+            <div class="bar orange" style="width: 23%;"></div>
+            <h6 class="dark-text">Speechiness</h6>
+            <div class="bar teal" style="width: 55%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

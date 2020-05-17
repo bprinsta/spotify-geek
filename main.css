@@ -1,0 +1,202 @@
+body {
+  color: #ffffff;
+  margin-top: 5rem;
+  font-family: "Avenir", "Helvetica", "sans-serif";
+}
+
+dark-text {
+  color: #aaaaaa;
+  border-color: #aaaaaa;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+/* Image Styling */
+.logo {
+  height: 30px;
+  margin-top: 20px;
+}
+
+.small-logo {
+  height: 0px;
+}
+
+.logo-style {
+  text-align: center;
+}
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  width: 200px;
+  background-color: #000000;
+}
+
+/* Control the right side */
+.right {
+  left: 200px;
+  width: 99%;
+  resize: horizontal;
+  background-color: #161616;
+}
+
+.main-content {
+  margin-top: 40px;
+  margin-left: 40px;
+
+  justify-content: center;
+}
+
+.nav-link-container {
+    margin-top: 5px;
+    margin-right: 10px;
+    width: 450px;
+}
+
+.nav-links {
+    margin-top: 40;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.nav-link {
+    margin-bottom: 10px;
+    color: #aaaaaa;
+}
+
+.nav-link-sm {
+    /* font-size: 0px; */
+    margin-bottom: 10px;
+    color: #aaaaaa;
+}
+
+.audio-info-container {
+  margin-top: 42;
+}
+
+.search-field {
+  margin-top: 20px;
+  margin-right: 40px;
+  margin-left: 40px;
+  position: relative;
+}
+
+.search {
+  position: absolute;
+  top: 0px;
+  right: 200px;
+  border-radius: 15px;
+  border: 1px solid #eee;
+
+  width: 260px;
+  height: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 16px;
+    margin-bottom: 0rem;
+  }
+
+  .left {
+    width: 0%;
+  }
+
+  .right {
+    left: 0px;
+    width: 100%;
+  }
+
+  .nav-link-container {
+    width: 420px;
+}
+
+  .nav-link-sm {
+    font-size: 16 px;
+}
+
+  .main-content {
+    margin-top: 80px;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .column-flex {
+    width: 100%;
+  }
+
+  .small-logo {
+    height: 30px;
+    margin-top: -5px;
+    margin-left: 10px;
+  }
+
+  .search {
+    width: 140px;
+    right: 20px;
+    margin-top: 20px;
+  }
+  .search-field {
+    margin-top: 0;
+    padding-top: 20px;
+    margin-right: 0px;
+    margin-left: 0px;
+    position: absolute;
+    background-color: black;
+    width: 100%;
+    height: 60px;
+  }
+
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.column-flex {
+  width: 100%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

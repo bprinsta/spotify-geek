@@ -1,0 +1,12 @@
+.audio-analysis {
+  width: 400;
+}
+
+.row-flex {
+  display: flex;
+}
+
+.column-flex {
+  float: left;
+  flex: 40%;
+}
