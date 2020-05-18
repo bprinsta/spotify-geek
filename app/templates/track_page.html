@@ -18,7 +18,6 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/track_basics.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/audio_features.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/audio_analysis.css') }}" />
-
     <!-- Google Fonts -->
     <link
       href="http://fonts.googleapis.com/css?family=Corben:bold"
@@ -41,8 +40,7 @@
       <div class="nav-links">
         <h4 class="nav-link">Home</h4>
         <h4 class="nav-link">About</h4>
-        <h4 class="nav-link">Challenge</h4>
-        <h4 class="nav-link">GitHub</h4>
+        <a href="https://github.com/bprinsta/spotify-geek" target=""><h4 class="nav-link">GitHub</h4> </a>
       </div>
     </div>
     <div class="split right">
@@ -58,37 +56,41 @@
       <div class="main-content">
         <div class="row">
           <div class="album-art-container">
-            <img class="album-art" src="{{ url_for('static', filename='images/album_art.png') }}" alt="" />
+            <img class="album-art" src="{{ track['album_art']['url'] }}" alt="" />
           </div>
           <div class="track-basic-info">
-            <h1 class="track-title">All Eyes On Ye</h1>
-            <h2 class="track-artist">Kanye West</h2>
-            <h4 class="track-album">Turbo Grafx 16 · 2019</h4>
+            <h1 class="track-title">{{ track['name'] }}</h1>
+            <h2 class="track-artist">
+              {% for artist in track['artists'] %}
+                {{ artist }}
+              {% endfor %}
+            </h2>
+            <h4 class="track-album">{{ track['album'] }} · {{ track['release_date'] }}</h4>
           </div>
         </div>
 
         <div class="audio-info-container row-flex">
-          <div class="column audio-analysis">
-            <h2 style="margin-left: -10;">Audio Analysis</h2>
-            <div class="row row-flex">
+          <div class="column audio-analysis" style="margin-left: -10;">
+            <h2>Audio Analysis</h2>
+            <div class="row row-flex" style="margin-left: 0;">
               <div class="column-flex">
-                <h1>A♯</h1>
+                <h1>{{ features['key'] }}</h1>
                 <p style="color: #aaaaaa;">Key</p>
 
-                <h1>7/4</h1>
+                <h1>{{ features['time_signature'] }}/8</h1>
                 <p style="color: #aaaaaa;">Time Signature</p>
 
-                <h1>6:01</h1>
+                <h1>{{ features['duration_ms'] }}</h1>
                 <p style="color: #aaaaaa;">Duration</p>
               </div>
               <div class="column-flex">
-                <h1>Minor</h1>
+                <h1>{{ features['mode'] }}</h1>
                 <p style="color: #aaaaaa;">Mode</p>
 
-                <h1>128</h1>
+                <h1>{{ features['tempo'] }}</h1>
                 <p style="color: #aaaaaa;">Tempo (bpm)</p>
 
-                <h1>204</h1>
+                <h1>{{ features['bars'] }}</h1>
                 <p style="color: #aaaaaa;">Bars</p>
               </div>
             </div>

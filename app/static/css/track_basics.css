@@ -1,5 +1,5 @@
 .album-art {
-  height: 160px;
+  height: 200px;
 }
 
 .track-artist {
@@ -22,13 +22,13 @@
 
 .album-art-container {
   float: left;
-  width: 180;
+  width: 220;
   padding: 5px;
 }
 
 @media screen and (max-width: 768px) {
   .album-art {
-    height: 120px;
+    height: 130px;
   }
 
   .track-title {
@@ -37,7 +37,7 @@
   
   .album-art-container {
     float: left;
-    width: 120;
+    width: 130;
     margin-right: 10px;
   }
 
