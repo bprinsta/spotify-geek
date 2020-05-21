@@ -7,28 +7,28 @@ from app.track import Track
 from spotipy.oauth2 import SpotifyClientCredentials
 from datetime import datetime
 
-track_uri = {}
-track_uri['tyler'] = 'spotify:track:5hVghJ4KaYES3BFUATCYn0'
-track_uri['joey'] = 'spotify:track:0O5brqyThK4RkcbhGGwJZU'
-track_uri['lazlo'] = 'spotify:track:6eiP01Xsp3n9opK1Ucq5UB'
-track_uri['harry'] = 'spotify:track:73hAYcA5TznG8rtuX1k9Ka'
-track_uri['butter'] = 'spotify:track:6iCJCZqDJjmBxt07Oid6FI'
-track_uri['pigs'] = 'spotify:track:59FwEQpuagQZQVP71h9OIq'
+track_uris = {}
+track_uris['tyler'] = 'spotify:track:5hVghJ4KaYES3BFUATCYn0'
+track_uris['joey'] = 'spotify:track:0O5brqyThK4RkcbhGGwJZU'
+track_uris['lazlo'] = 'spotify:track:6eiP01Xsp3n9opK1Ucq5UB'
+track_uris['harry'] = 'spotify:track:73hAYcA5TznG8rtuX1k9Ka'
+track_uris['butter'] = 'spotify:track:6iCJCZqDJjmBxt07Oid6FI'
+track_uris['pigs'] = 'spotify:track:59FwEQpuagQZQVP71h9OIq'
 
 spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
 
 pitch_class_notation = {0:'C', 1:'C♯', 2:'D', 3:'E♭', 4:'E', 5:'F', 6:'F♯', 7:'G', 8:'A♭', 9:'A', 10:'B♭', 11:'B'}
 
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=['GET', 'POST'])
-def index():
-    track_req = spotify.track(track_uri['lazlo'])
-    analysis_req = spotify.audio_analysis(track_uri['lazlo'])
-    features_req = spotify.audio_features(tracks=[track_uri['lazlo']])[0]
+@app.route('/', methods=['GET'])
+@app.route('/index/<string:track_uri>', methods=['GET'])
+def index(track_uri='spotify:track:0O5brqyThK4RkcbhGGwJZU'):
+    track_req = spotify.track(track_uri)
+    analysis_req = spotify.audio_analysis(track_uri)
+    features_req = spotify.audio_features(tracks=[track_uri])[0]
 
     # Track Basic Info
     track = {}
-    track['uri'] = track_uri['lazlo']
+    track['uri'] = track_uri
     track['name'] = track_req['name']
 
     track['album'] = track_req['album']['name']
@@ -52,6 +52,8 @@ def index():
     features['danceability'] = features_req['danceability']
     features['energy'] = features_req['energy']
     features['instrumentalness'] = features_req['instrumentalness']
+    if features['instrumentalness'] < 0.03:
+        features['instrumentalness'] = 0.03
     features['liveness'] = features_req['liveness']
     features['speechiness'] = features_req['speechiness']
     features['valence'] = features_req['valence']
@@ -69,8 +71,7 @@ def search():
     search_results = spotify.search(q=q, limit=20, type='track')
     
     tracks = []
-    # print(search_results)
-    # print(search_results['tracks']['items'])
+
     for result in search_results['tracks']['items']:
         track = {}
         track['name'] = result['name']

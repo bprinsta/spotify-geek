@@ -8,6 +8,7 @@
   <div>
     <div class="content-section">
       {% for track in tracks %}
+      <a href="{{ url_for('index', track_uri=track['uri']) }}" style="color: white;text-decoration: none;">
       <div class="row">
         <div class="col">
           <div class="row">
@@ -30,6 +31,7 @@
           </div>
         </div>
       </div>
+    </a>
       <br />
       {% endfor %}
     </div>
