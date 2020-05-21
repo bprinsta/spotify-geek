@@ -1,0 +1,20 @@
+.headline h1, .headline p {
+    display: inline;
+    vertical-align: baseline;
+    font-size: 16px;
+    line-height: 54px; 
+    text-align: left;   
+}
+.headline h1 {
+    display: inline;
+    font-size: 48;
+    font-weight: bold;
+}
+
+hr {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #fff;
+    margin-left: -15;
+    margin-right: 0;
+}

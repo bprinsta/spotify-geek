@@ -1,8 +1,9 @@
 import spotipy
 import json
 
-from flask import render_template, url_for
+from flask import render_template, url_for, request
 from app import app
+from app.track import Track
 from spotipy.oauth2 import SpotifyClientCredentials
 from datetime import datetime
 
@@ -18,12 +19,12 @@ spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
 
 pitch_class_notation = {0:'C', 1:'C♯', 2:'D', 3:'E♭', 4:'E', 5:'F', 6:'F♯', 7:'G', 8:'A♭', 9:'A', 10:'B♭', 11:'B'}
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 def index():
-    track_req = spotify.track(track_uri['pigs'])
-    analysis_req = spotify.audio_analysis(track_uri['pigs'])
-    features_req = spotify.audio_features(tracks=[track_uri['pigs']])[0]
+    track_req = spotify.track(track_uri['lazlo'])
+    analysis_req = spotify.audio_analysis(track_uri['lazlo'])
+    features_req = spotify.audio_features(tracks=[track_uri['lazlo']])[0]
 
     # Track Basic Info
     track = {}
@@ -56,4 +57,33 @@ def index():
     features['valence'] = features_req['valence']
     
 
-    return render_template('track_page.html', track=track, features=features)
+    return render_template('track.html', track=track, features=features)
+
+@app.route("/search", methods=['POST'])
+def search():
+    q = request.form.get('q')
+    search_results = spotify.search(q=q, limit=20, type='track')
+    
+    tracks = []
+    # print(search_results)
+    # print(search_results['tracks']['items'])
+    for result in search_results['tracks']['items']:
+        track = {}
+        track['name'] = result['name']
+        track['album'] = result['album']['name']
+        track['album_art'] = result['album']['images'][0]
+
+        track['artists'] = []
+        for artist in result['artists']:
+            track['artists'].append(artist['name'])
+
+        track['uri'] = result['uri']
+        tracks.append(track)
+        # print(track['name'])
+        # print(track['album']['name'])
+
+    return render_template('search.html', query=q, tracks=tracks)
+
+@app.errorhandler(404)
+def error_404(error):
+    return render_template('error.html'), 404
