@@ -44,21 +44,51 @@
     </div>
     <div class="column audio-features">
       <h2>Audio Features</h2>
+
       <h6 class="dark-text">Acoustiness</h6>
-      <div class="bar red" style="width: 60%;"></div>
-      <h6 class="dark-text">Dancibility</h6>
-      <div class="bar purple" style="width: 80%;"></div>
+      <div class="bar red" style="width: {{ features['acousticness'] * 100 }}%;"></div>
+
+      <h6 class="dark-text">Danceability</h6>
+      <div class="bar purple" style="width: {{ features['danceability'] * 100 }}%;"></div>
+
       <h6 class="dark-text">Energy</h6>
-      <div class="bar yellow" style="width: 40%;"></div>
-      <h6 class="dark-text">Instramentalness</h6>
-      <div class="bar blue" style="width: 95%;"></div>
+      <div class="bar yellow" style="width: {{ features['energy'] * 100 }}%;"></div>
+
+      <h6 class="dark-text">Instrumentalness</h6>
+      <div class="bar blue" style="width:{{ features['instrumentalness'] * 100 }}%;"></div>
+
       <h6 class="dark-text">Liveness</h6>
-      <div class="bar green" style="width: 75%;"></div>
+      <div class="bar green" style="width: {{ features['liveness'] * 100 }}%;"></div>
+
       <h6 class="dark-text">Valence</h6>
-      <div class="bar orange" style="width: 23%;"></div>
+      <div class="bar orange" style="width: {{ features['valence'] * 100 }}%;"></div>
+
       <h6 class="dark-text">Speechiness</h6>
-      <div class="bar teal" style="width: 55%;"></div>
+      <div class="bar teal" style="width: {{ features['speechiness'] * 100}}%;"></div>
     </div>
   </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+  $(document).ajaxComplete(function () {
+    // if ($("#acousticness").length != 0) {
+      $("#acousticness").css("width", 50);
+      $("#energy").css("width", 50);
+    // }
+  });
+
+  // $(document).ready(function () {
+  //   var val = 1;
+  //   var entry1 = 3;
+
+  //   $.getJSON({
+  //     url: "/index",
+  //     data: { entry2_id: val, entry1_id: entry1 },
+  //     success: function (data) {
+  //       $("#varID").html(data.var1);
+  //     },
+  //   });
+  // });
+</script>
 {% endblock content %}
