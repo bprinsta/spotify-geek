@@ -1,64 +1,64 @@
-{% extends "layout.html" %}
-{% block content %}
+{% extends "layout.html" %} {% block content %}
 <div class="content-section">
-        <div class="row">
-          <div class="album-art-container">
-            <img class="album-art" src="{{ track['album_art']['url'] }}" alt="" />
-          </div>
-          <div class="track-basic-info">
-            <h1 class="track-title">{{ track['name'] }}</h1>
-            <h2 class="track-artist">
-              {% for artist in track['artists'] %}
-                {{ artist }}
-              {% endfor %}
-            </h2>
-            <h4 class="track-album">{{ track['album'] }} · {{ track['release_date'] }}</h4>
-          </div>
+  <div class="row">
+    <div class="album-art-container">
+      <img class="album-art" src="{{ track['album_art']['url'] }}" alt="" />
+    </div>
+    <div class="track-basic-info">
+      <h1 class="track-title">{{ track['name'] }}</h1>
+      <h2 class="track-artist">
+        {% for artist in track['artists'] %} {% if loop.index > 1 %} · {%
+        endif%} {{ artist }} {% endfor %}
+      </h2>
+      <h4 class="track-album">
+        {{ track['album'] }} · {{ track['release_date'] }}
+      </h4>
+    </div>
+  </div>
+
+  <div class="audio-info-container row-flex">
+    <div class="column audio-analysis" style="margin-left: -10;">
+      <h2>Audio Analysis</h2>
+      <div class="row row-flex" style="margin-left: 0;">
+        <div class="column-flex">
+          <h1>{{ features['key'] }}</h1>
+          <p style="color: #aaaaaa;">Key</p>
+
+          <h1>{{ features['time_signature'] }}/8</h1>
+          <p style="color: #aaaaaa;">Time Signature</p>
+
+          <h1>{{ features['duration_ms'] }}</h1>
+          <p style="color: #aaaaaa;">Duration</p>
         </div>
+        <div class="column-flex">
+          <h1>{{ features['mode'] }}</h1>
+          <p style="color: #aaaaaa;">Mode</p>
 
-        <div class="audio-info-container row-flex">
-          <div class="column audio-analysis" style="margin-left: -10;">
-            <h2>Audio Analysis</h2>
-            <div class="row row-flex" style="margin-left: 0;">
-              <div class="column-flex">
-                <h1>{{ features['key'] }}</h1>
-                <p style="color: #aaaaaa;">Key</p>
+          <h1>{{ features['tempo'] }}</h1>
+          <p style="color: #aaaaaa;">Tempo (bpm)</p>
 
-                <h1>{{ features['time_signature'] }}/8</h1>
-                <p style="color: #aaaaaa;">Time Signature</p>
-
-                <h1>{{ features['duration_ms'] }}</h1>
-                <p style="color: #aaaaaa;">Duration</p>
-              </div>
-              <div class="column-flex">
-                <h1>{{ features['mode'] }}</h1>
-                <p style="color: #aaaaaa;">Mode</p>
-
-                <h1>{{ features['tempo'] }}</h1>
-                <p style="color: #aaaaaa;">Tempo (bpm)</p>
-
-                <h1>{{ features['bars'] }}</h1>
-                <p style="color: #aaaaaa;">Bars</p>
-              </div>
-            </div>
-          </div>
-          <div class="column audio-features">
-            <h2>Audio Features</h2>
-            <h6 class="dark-text">Acoustiness</h6>
-            <div class="bar red" style="width: 60%;"></div>
-            <h6 class="dark-text">Dancibility</h6>
-            <div class="bar purple" style="width: 80%;"></div>
-            <h6 class="dark-text">Energy</h6>
-            <div class="bar yellow" style="width: 40%;"></div>
-            <h6 class="dark-text">Instramentalness</h6>
-            <div class="bar blue" style="width: 95%;"></div>
-            <h6 class="dark-text">Liveness</h6>
-            <div class="bar green" style="width: 75%;"></div>
-            <h6 class="dark-text">Valence</h6>
-            <div class="bar orange" style="width: 23%;"></div>
-            <h6 class="dark-text">Speechiness</h6>
-            <div class="bar teal" style="width: 55%;"></div>
-          </div>
+          <h1>{{ features['bars'] }}</h1>
+          <p style="color: #aaaaaa;">Bars</p>
         </div>
+      </div>
+    </div>
+    <div class="column audio-features">
+      <h2>Audio Features</h2>
+      <h6 class="dark-text">Acoustiness</h6>
+      <div class="bar red" style="width: 60%;"></div>
+      <h6 class="dark-text">Dancibility</h6>
+      <div class="bar purple" style="width: 80%;"></div>
+      <h6 class="dark-text">Energy</h6>
+      <div class="bar yellow" style="width: 40%;"></div>
+      <h6 class="dark-text">Instramentalness</h6>
+      <div class="bar blue" style="width: 95%;"></div>
+      <h6 class="dark-text">Liveness</h6>
+      <div class="bar green" style="width: 75%;"></div>
+      <h6 class="dark-text">Valence</h6>
+      <div class="bar orange" style="width: 23%;"></div>
+      <h6 class="dark-text">Speechiness</h6>
+      <div class="bar teal" style="width: 55%;"></div>
+    </div>
+  </div>
 </div>
 {% endblock content %}

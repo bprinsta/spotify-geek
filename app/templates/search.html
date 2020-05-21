@@ -2,7 +2,7 @@
 <div class="content-section">
   <div class="headline" style="margin-left: -15;">
     <h1>Song Results</h1>
-    <p>for <i> "{{ query }}"</i></p>
+    <p style="padding-left: 6px;"> for  <i> "{{ query }}"</i></p>
   </div>
   <hr />
   <div>
@@ -19,7 +19,12 @@
             <div class="col">
               <h3>{{ track['name'] }}</h3>
               <h5 class="track-artist">
-                {% for artist in track['artists'] %} {{ artist }} {% endfor %}
+                {% for artist in track['artists'] %} 
+                  {% if loop.index > 1 %}
+                    ·
+                  {% endif%}
+                  {{ artist }} 
+                {% endfor %}
               </h5>
             </div>
           </div>

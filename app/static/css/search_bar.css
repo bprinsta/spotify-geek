@@ -8,12 +8,8 @@
   }
   
   .topnav input[type=text] {
-    /* padding: 6px;
-    margin-top: 8px; */
-    /* font-size: 17px;
-    border: none; */
     border: none;
-    width: 200;
+    width: 300;
     height: 25;
     border-radius: 15px;
     margin-right: 16px;
@@ -21,11 +17,8 @@
   
   .topnav .search-container button {
     float: right;
-    /* padding: 6px 10px;
-    margin-top: 8px; */
     margin-right: 16px;
     background: #ddd;
-    /* font-size: 17px; */
     height: 25;
     border: none;
     cursor: pointer;
