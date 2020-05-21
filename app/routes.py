@@ -62,6 +62,10 @@ def index():
 @app.route("/search", methods=['POST'])
 def search():
     q = request.form.get('q')
+
+    if not q:
+        return render_template('search.html')
+
     search_results = spotify.search(q=q, limit=20, type='track')
     
     tracks = []
@@ -79,8 +83,6 @@ def search():
 
         track['uri'] = result['uri']
         tracks.append(track)
-        # print(track['name'])
-        # print(track['album']['name'])
 
     return render_template('search.html', query=q, tracks=tracks)
 
