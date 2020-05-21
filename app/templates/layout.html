@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+
+    <!-- Local CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/track_basics.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/audio_features.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/audio_analysis.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/search.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/search_bar.css') }}"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="http://fonts.googleapis.com/css?family=Corben:bold"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Nobile"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <title>Spotify Geek</title>
+  </head>
+
+  <body>
+    <div class="topnav">
+      <div class="search-container">
+        <form method="POST" action="{{ url_for('search') }}">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Search.."
+            name="q"
+          />
+        </form>
+      </div>
+    </div>
+
+    <div class="sidenav">
+      <div class="logo-style">
+        <a href="{{ url_for('index') }}">
+          <img
+            class="logo"
+            src="{{ url_for('static', filename='images/spotify_geek_logo.svg') }}"
+            alt=""
+          />
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="{{ url_for('index') }}"><h4 class="nav-link">Home</h4></a>
+        <!-- <a href="{{ url_for('search') }}"><h4 class="nav-link">Search</h4></a> -->
+        <a href="https://github.com/bprinsta/spotify-geek" target="_blank"
+          ><h4 class="nav-link">GitHub</h4>
+        </a>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="main-content">
+        {% block content %} {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>

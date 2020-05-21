@@ -1,0 +1,33 @@
+{% extends "layout.html" %} {% block content %}
+<div class="content-section">
+  <div class="headline" style="margin-left: -15;">
+    <h1>Song Results</h1>
+    <p>for <i> "{{ query }}"</i></p>
+  </div>
+  <hr />
+  <div>
+    <div class="content-section">
+      {% for track in tracks %}
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <img
+              src="{{ track['album_art']['url'] }}"
+              alt=""
+              style="width: 80;height:80;"
+            />
+            <div class="col">
+              <h3>{{ track['name'] }}</h3>
+              <h5 class="track-artist">
+                {% for artist in track['artists'] %} {{ artist }} {% endfor %}
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %}
