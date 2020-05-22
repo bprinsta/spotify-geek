@@ -80,17 +80,21 @@
   </head>
 
   <body>
-    <div class="topnav">
+    <div class="topnav" id="myTopnav">
       <a href="{{ url_for('index') }}">
         <img
           class="logo"
           src="{{ url_for('static', filename='images/spotify_geek_logo.svg') }}"
           alt=""
         />
-      </a>
+      </a>      
 
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i> 
+      </a>
+
+      <a class="navlink" href="https://github.com/bprinsta/spotify-geek" target="_blank"
+        ><h4 style="color:white;">GitHub</h4>
       </a>
 
       <div class="search-container">

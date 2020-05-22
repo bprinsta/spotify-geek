@@ -57,7 +57,6 @@ def index(track_uri='spotify:track:0O5brqyThK4RkcbhGGwJZU'):
     features['liveness'] = features_req['liveness']
     features['speechiness'] = features_req['speechiness']
     features['valence'] = features_req['valence']
-    
 
     return render_template('track.html', track=track, features=features)
 
