@@ -5,7 +5,7 @@ Powered by the [Spotify API](https://developer.spotify.com/) from Spotify.
 
 # Screenshots
 <div align="center">
-  <img src="https://i.ibb.co/YRbCrFH/framed-screenshot-3.png" alt="framed-screenshot-3" border="0" height="300">
+  <img src="https://i.ibb.co/6Ncgktw/spotify-geek.png" alt="spotify-geek" border="0" height="300">
   <img src="https://i.ibb.co/XXCb3XJ/Tablet-Portrait-3x.png" alt="Tablet-Portrait-3x" border="0" height="300">
 </div>
 
