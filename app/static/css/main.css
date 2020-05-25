@@ -63,8 +63,9 @@ h5 {
 }
 
 .main-content {
-  margin-top: 20px;
+  margin-top: 50px;
   margin-left: 40px;
+  margin-right: 40px;
 }
 
 .nav-link-container {
@@ -81,7 +82,7 @@ h5 {
 
 .nav-link {
     margin-bottom: 10px;
-    color: #aaaaaa;
+    color: rgb(208, 208, 208);;
 }
 
 .audio-info-container {
@@ -110,7 +111,7 @@ h5 {
   }
 
   .main-content {
-    /* margin-top: 60px; */
+    margin-top: 20px;
   }
 
   .nav-link-container {

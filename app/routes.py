@@ -19,9 +19,13 @@ spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
 
 pitch_class_notation = {0:'C', 1:'C♯', 2:'D', 3:'E♭', 4:'E', 5:'F', 6:'F♯', 7:'G', 8:'A♭', 9:'A', 10:'B♭', 11:'B'}
 
-@app.route('/', methods=['GET'])
-@app.route('/index/<string:track_uri>', methods=['GET'])
-def index(track_uri='spotify:track:0O5brqyThK4RkcbhGGwJZU'):
+@app.route('/')
+@app.route('/index')
+def index():
+    return render_template('home.html')
+
+@app.route('/track/<string:track_uri>', methods=['GET'])
+def track(track_uri='spotify:track:0O5brqyThK4RkcbhGGwJZU'):
     track_req = spotify.track(track_uri)
     analysis_req = spotify.audio_analysis(track_uri)
     features_req = spotify.audio_features(tracks=[track_uri])[0]
